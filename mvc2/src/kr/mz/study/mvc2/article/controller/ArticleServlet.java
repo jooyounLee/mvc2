@@ -22,20 +22,19 @@ public class ArticleServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request);
-		/*String command = request.getParameter("command");
+		
+		String command = request.getParameter("command");
 		ActionFactory af = new ActionFactory();
 		Action action = af.getAction(command);
 		System.out.println("command : " + command);
+		
 		if(action != null) {
 			try {
 				action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}*/
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

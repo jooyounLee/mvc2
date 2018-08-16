@@ -16,8 +16,7 @@ $(() => {
 			modify_btn : $("input[name=btn-modify]"),
 			delete_btn : $("input[name=btn-delete]"),
 			cancel_btn : $("input[name=btn-cancel]"),
-			submit_btn : $("input[name='btn-submit']"),
-			url : ""
+			submit_btn : $("input[name='btn-submit']")
 	},
 	
 	btnEvent = () => {
@@ -46,9 +45,6 @@ $(() => {
 			el.form_read.attr("action", url).submit();
 		});
 		
-		el.read_btn.on('click', ()=>{
-			
-		});
 		
 		// 취소버튼 클릭 : 리스트로 이동
 		el.cancel_btn.on('click', () => {
@@ -57,7 +53,8 @@ $(() => {
 	},
 	
 	save = () => {
-			var url = (el.isNew.val() === "true") ? "/mvc2/articlewrite.do" : "/mvc2/articleUpdate.do"
+			var url = "/mvc2/ArticleServlet?command=";
+			var command = (el.isNew.val() === "true") ? "articleWrite" : "articleUpdate"
 			
 			if (el.user_nm.val().trim().length < 1) {
 				alert("이름을 입력해주세요.");
@@ -86,18 +83,19 @@ $(() => {
 			
 			$.ajax({
 		        type : 'POST',
-		        url : url,
+		        url : url + command,
 		        data : {
 		        	'user_nm' : el.user_nm.val(),
 					'article_pw' : el.article_pw.val(),
 					'title' : el.title.val(),
 					'content' : el.content.val()
 		        },
-		        success : function (result) {
-		            if (result) {
-		            	console.log(result);
+		        success : (result) => {
+		            if(result.trim() === "1"){
+		            	console.log(1);
 		            } else {
-		            }             
+		            	console.log(0);
+		            }      
 		        }
 		    });
 	}

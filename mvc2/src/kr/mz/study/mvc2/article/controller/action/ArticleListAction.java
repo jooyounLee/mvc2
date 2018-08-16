@@ -1,14 +1,19 @@
 package kr.mz.study.mvc2.article.controller.action;
 
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.mz.study.mvc2.article.dao.ArticleDAO;
 
 public class ArticleListAction implements Action {
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArticleDAO article = new ArticleDAO();
+		String url = "/index.jsp";
 		
 		// 전체 글 수--
 		int totalPostCount = article.getListCount();
@@ -31,9 +36,11 @@ public class ArticleListAction implements Action {
 		if(firstPost < 0) {
 			firstPost = 0;
 		}
-		
+		System.out.println("articleListAction : " + article.getArticleList(firstPost, countPostPerPage));
 		// 게시물 리스트 get
 		request.setAttribute("articleList", article.getArticleList(firstPost, countPostPerPage));
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 }

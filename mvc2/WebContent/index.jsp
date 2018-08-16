@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="jooy" uri="/tlds/pagination"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
 			<c:forEach var="list" items="${articleList }">
 				<tr>
 					<td><c:out value="${list.idx}"/></td>
-					<td><button name="btn-read"><c:out value="${list.title}"/></button></td>
+					<td><a href=""><c:out value="${list.title}"/></a></td>
 					<td><c:out value="${list.user_nm}"/></td>
 					<td><fmt:formatDate value="${list.created }" pattern="yyyy-MM-dd HH:mm"/></td>
 				</tr>
