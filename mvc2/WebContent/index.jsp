@@ -25,7 +25,7 @@
 			<c:forEach var="list" items="${articleList }">
 				<tr>
 					<td><c:out value="${list.idx}"/></td>
-					<td><a href=""><c:out value="${list.title}"/></a></td>
+					<td><a href="${contextPath}/ArticleServlet?command=articleRead&idx=${list.idx}"><c:out value="${list.title}"/></a></td>
 					<td><c:out value="${list.user_nm}"/></td>
 					<td><fmt:formatDate value="${list.created }" pattern="yyyy-MM-dd HH:mm"/></td>
 				</tr>

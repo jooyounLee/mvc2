@@ -92,9 +92,11 @@ $(() => {
 		        },
 		        success : (result) => {
 		            if(result.trim() === "1"){
-		            	console.log(1);
+		            	alert("글 작성 성공");
+		            	location.href = url + "articleList";
 		            } else {
-		            	console.log(0);
+		            	alert("글 작성 실패");
+		            	location.href = url + "articleList";
 		            }      
 		        }
 		    });

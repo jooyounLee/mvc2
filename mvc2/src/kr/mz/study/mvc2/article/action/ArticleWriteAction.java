@@ -1,10 +1,11 @@
-package kr.mz.study.mvc2.article.controller.action;
+package kr.mz.study.mvc2.article.action;
 
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.mz.study.mvc2.action.Action;
 import kr.mz.study.mvc2.article.dao.ArticleDAO;
 
 public class ArticleWriteAction implements Action {

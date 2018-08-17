@@ -1,4 +1,4 @@
-package kr.mz.study.mvc2.article.controller.action;
+package kr.mz.study.mvc2.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

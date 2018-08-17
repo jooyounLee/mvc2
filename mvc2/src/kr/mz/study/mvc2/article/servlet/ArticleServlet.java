@@ -1,4 +1,4 @@
-package kr.mz.study.mvc2.article.controller;
+package kr.mz.study.mvc2.article.servlet;
 
 import java.io.IOException;
 
@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.mz.study.mvc2.article.controller.action.Action;
+import kr.mz.study.mvc2.action.Action;
+import kr.mz.study.mvc2.article.action.ArticleActionFactory;
 
 
 @WebServlet("/ArticleServlet")
@@ -24,9 +25,8 @@ public class ArticleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String command = request.getParameter("command");
-		ActionFactory af = new ActionFactory();
+		ArticleActionFactory af = new ArticleActionFactory();
 		Action action = af.getAction(command);
-		System.out.println("command : " + command);
 		
 		if(action != null) {
 			try {
