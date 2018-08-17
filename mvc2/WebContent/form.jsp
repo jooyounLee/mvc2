@@ -11,28 +11,26 @@
 </head>
 <body>
 	<div class="write_wrap">
-		<form id="form" method="post" action="#">
-			<input type="hidden" name="isNew" value="${param.isNew }">
-			<input type="hidden" name="idx" value="${param.idx }">
-			<table>
-				<tr>
-					<td>이름</td>
-					<td><input type="text" name="user_nm" value="${result.user_nm }"></td>
-					<td>비밀번호</td>
-					<td><input type="password" name="article_pw" value=""></td>
-				</tr>
-				<tr>
-					<td>제목</td>
-					<td colspan="3"><input type="text" name="title" value="${result.title }"></td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td colspan="3">
-						<textarea cols="50" rows="20" name="content">${result.content }</textarea>
-					</td>
-				</tr>
-			</table>
-		</form>
+		<input type="hidden" name="isNew" value="${param.isNew }">
+		<input type="hidden" name="idx" value="${param.idx }">
+		<table>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="user_nm" value="${result.user_nm }"></td>
+				<td>비밀번호</td>
+				<td><input type="password" name="article_pw" value=""></td>
+			</tr>
+			<tr>
+				<td>제목</td>
+				<td colspan="3"><input type="text" name="title" value="${result.title }"></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td colspan="3">
+					<textarea cols="50" rows="20" name="content">${result.content }</textarea>
+				</td>
+			</tr>
+		</table>
 		
 		<div id="btn-box">
 			<input type="button" value="취소" name="btn-cancel">

@@ -25,6 +25,9 @@ public class ArticleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String command = request.getParameter("command");
+		if(command == null) {
+			command = "articleList";
+		}
 		ArticleActionFactory af = new ArticleActionFactory();
 		Action action = af.getAction(command);
 		

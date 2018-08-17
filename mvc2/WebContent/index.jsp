@@ -37,11 +37,11 @@
 		</div>
 		
 		<div id="page-box">
-			
+			<jooy:paging selectPageNum = "${selectPageNum}" 
+						 totalPostCount = "${totalPostCount}"
+						 countPostPerPage = "${countPostPerPage}"
+						 pageParamName = "p" />
 		</div>
 	</div>
-	
-<script src="//code.jquery.com/jquery-latest.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/article.js"></script>
 </body>
 </html>

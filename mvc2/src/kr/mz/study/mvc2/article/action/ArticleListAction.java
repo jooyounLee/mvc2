@@ -6,11 +6,15 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
 
 import kr.mz.study.mvc2.action.Action;
 import kr.mz.study.mvc2.article.dao.ArticleDAO;
+import kr.mz.study.mvc2.util.Pagination;
 
 public class ArticleListAction implements Action {
+	
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArticleDAO article = new ArticleDAO();
@@ -37,7 +41,11 @@ public class ArticleListAction implements Action {
 		if(firstPost < 0) {
 			firstPost = 0;
 		}
-		System.out.println("articleListAction : " + article.getArticleList(firstPost, countPostPerPage));
+		
+		request.setAttribute("selectPageNum", selectPageNum);
+		request.setAttribute("totalPostCount", totalPostCount);
+		request.setAttribute("countPostPerPage", countPostPerPage);
+		
 		// 게시물 리스트 get
 		request.setAttribute("articleList", article.getArticleList(firstPost, countPostPerPage));
 		

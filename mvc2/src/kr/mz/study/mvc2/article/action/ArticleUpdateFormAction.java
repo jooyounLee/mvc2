@@ -8,12 +8,12 @@ import kr.mz.study.mvc2.action.Action;
 import kr.mz.study.mvc2.article.dao.ArticleDAO;
 import kr.mz.study.mvc2.article.model.Article;
 
-public class ArticleReadAction implements Action {
+public class ArticleUpdateFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		ArticleDAO dao = new ArticleDAO();
-		String url = "/readForm.jsp";
+		String url = "/form.jsp";
 		int idx = Integer.parseInt(request.getParameter("idx"));
 
 		Article result = dao.getArticleDetail(idx);
